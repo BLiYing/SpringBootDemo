@@ -30,7 +30,11 @@
                              type="XMLMAPPER"/>
 
 
-		<table tableName="sys_user"></table>
-		 
+		<!--<table tableName="sys_user"></table>-->
+		<!--<table tableName="sys_role"></table>-->
+		<table tableName="sys_user_role"></table>
+
+
+
     </context>
 </generatorConfiguration>
