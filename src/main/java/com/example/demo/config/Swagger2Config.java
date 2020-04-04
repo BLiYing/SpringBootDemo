@@ -15,13 +15,13 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * @ClassName Swagger2Config
- * @Description Swagger2配置
+ * @Description Swagger2配置   http://localhost:8088/swagger-ui.html
  * @Author liying
  * @Date 2020/2/15 10:37 AM
  * @Version 1.0
  **/
-@EnableSwagger2
 @Configuration
+@EnableSwagger2
 public class Swagger2Config  {
     @Bean
     public Docket createRestApi(){
@@ -36,6 +36,7 @@ public class Swagger2Config  {
 //                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
                 .paths(PathSelectors.any())
                 .build();
+
     }
 
     private ApiInfo apiInfo() {

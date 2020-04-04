@@ -1,9 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.pojo.IMoocJSONResult;
-import com.example.demo.pojo.PageInfoBase;
 import com.example.demo.pojo.SysUser;
-import com.example.demo.pojo.SysUserParam;
+import com.example.demo.pojo.param.SysUserParam;
 import com.example.demo.service.UserService;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
@@ -98,6 +97,7 @@ public class MyBatisCRUDController {
 		return IMoocJSONResult.ok(userService.queryUserById(userId));
 	}
 
+	//分页查询 依赖mapper实现
 	@ApiOperation("查询默认用户名和昵称的用户")
 	@RequestMapping(value = "/queryUserList",method = RequestMethod.POST)
 	public IMoocJSONResult queryUserList() {

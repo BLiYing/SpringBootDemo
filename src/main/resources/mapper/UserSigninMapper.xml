@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.UserSigninMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.pojo.UserSignin">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="longitude" jdbcType="DECIMAL" property="longitude" />
+    <result column="latitude" jdbcType="DECIMAL" property="latitude" />
+    <result column="userid" jdbcType="BIGINT" property="userid" />
+    <result column="signin_time" jdbcType="TIMESTAMP" property="signinTime" />
+    <result column="is_in_circle" jdbcType="INTEGER" property="isInCircle" />
+    <result column="shopid" jdbcType="BIGINT" property="shopid" />
+  </resultMap>
+</mapper>

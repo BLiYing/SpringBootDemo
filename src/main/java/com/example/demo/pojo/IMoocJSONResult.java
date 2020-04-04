@@ -31,10 +31,10 @@ public class IMoocJSONResult {
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     // 响应业务状态
-    private Integer status;
+    private Integer code;
 
     // 响应消息
-    private String msg;
+    private String message;
 
     // 响应中的数据
     private Object data;
@@ -73,40 +73,40 @@ public class IMoocJSONResult {
 
     }
 
-//    public static LeeJSONResult build(Integer status, String msg) {
-//        return new LeeJSONResult(status, msg, null);
+//    public static LeeJSONResult build(Integer code, String message) {
+//        return new LeeJSONResult(code, message, null);
 //    }
 
     public IMoocJSONResult(Integer status, String msg, Object data) {
-        this.status = status;
-        this.msg = msg;
+        this.code = status;
+        this.message = msg;
         this.data = data;
     }
 
     public IMoocJSONResult(Object data) {
-        this.status = 200;
-        this.msg = "OK";
+        this.code = 200;
+        this.message = "OK";
         this.data = data;
     }
 
     public Boolean isOK() {
-        return this.status == 200;
+        return this.code == 200;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getCode() {
+        return code;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
-    public String getMsg() {
-        return msg;
+    public String getMessage() {
+        return message;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public Object getData() {
@@ -143,7 +143,7 @@ public class IMoocJSONResult {
                     obj = MAPPER.readValue(data.asText(), clazz);
                 }
             }
-            return build(jsonNode.get("status").intValue(), jsonNode.get("msg").asText(), obj);
+            return build(jsonNode.get("code").intValue(), jsonNode.get("message").asText(), obj);
         } catch (Exception e) {
             return null;
         }
@@ -187,7 +187,7 @@ public class IMoocJSONResult {
                 obj = MAPPER.readValue(data.traverse(),
                         MAPPER.getTypeFactory().constructCollectionType(List.class, clazz));
             }
-            return build(jsonNode.get("status").intValue(), jsonNode.get("msg").asText(), obj);
+            return build(jsonNode.get("code").intValue(), jsonNode.get("message").asText(), obj);
         } catch (Exception e) {
             return null;
         }

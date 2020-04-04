@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.UserSigninSettingTableMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.pojo.UserSigninSettingTable">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="shopid" jdbcType="BIGINT" property="shopid" />
+    <result column="radius" jdbcType="INTEGER" property="radius" />
+    <result column="longitude" jdbcType="DECIMAL" property="longitude" />
+    <result column="latitude" jdbcType="DECIMAL" property="latitude" />
+    <result column="workup_time" jdbcType="TIMESTAMP" property="workupTime" />
+    <result column="workoff_time" jdbcType="TIMESTAMP" property="workoffTime" />
+  </resultMap>
+</mapper>

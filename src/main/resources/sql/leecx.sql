@@ -234,3 +234,52 @@ CREATE TABLE `t_test` (
 INSERT INTO `t_test` VALUES ('1', '111');
 INSERT INTO `t_test` VALUES ('2', '222');
 INSERT INTO `t_test` VALUES ('3', '333');
+
+-- ----------------------------
+-- Table structure for user_signin_setting_table
+-- ----------------------------
+DROP TABLE IF EXISTS `user_signin_setting_table`;
+CREATE TABLE `user_signin_setting_table` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `shopid` bigint(8) unsigned DEFAULT NULL COMMENT '店铺id',
+  `radius` int(10) unsigned DEFAULT NULL COMMENT '打卡半径',
+  `longitude` decimal(10,7) DEFAULT NULL COMMENT '经度',
+  `latitude` decimal(10,7) DEFAULT NULL COMMENT '纬度',
+  `workup_time` datetime DEFAULT NULL COMMENT '上班时间',
+  `workoff_time` datetime DEFAULT NULL COMMENT '下班时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `shopid` (`shopid`)
+
+)ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='打卡半径和中心点经纬度设置';
+
+-- ----------------------------
+-- Records of user_signin_setting_table  114.182651,29.808584
+-- ----------------------------
+INSERT INTO `user_signin_setting_table` VALUES ('1','100108','100','114.182651','29.808584','2018-10-12 14:01:29','2018-10-12 14:01:29')
+
+
+-- ----------------------------
+-- Table structure for user_signin
+-- ----------------------------
+DROP TABLE IF EXISTS `user_signin`;
+CREATE TABLE `user_signin` (
+   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+   `longitude` decimal(10,7) DEFAULT NULL COMMENT '经度',
+   `latitude` decimal(10,7) DEFAULT NULL COMMENT '纬度',
+   `userid` bigint(20) unsigned DEFAULT NULL COMMENT '用户id',
+   `signin_time` datetime DEFAULT NULL COMMENT '打卡时间',
+   `is_in_circle` int(1) DEFAULT NULL COMMENT '是否在指定区域打卡；0->否；1->是',
+   `shopid` bigint(8) unsigned DEFAULT NULL COMMENT '店铺id',
+
+    PRIMARY KEY (`id`)
+)ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='打卡上传数据存储';
+
+-- ----------------------------
+-- Records of user_signin_table
+-- ----------------------------
+INSERT INTO `user_signin` VALUES ('1','114.173081','29.813085','8097','2018-10-12 14:01:29','1','100108');
+
+
+
+
+
